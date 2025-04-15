@@ -63,13 +63,14 @@ jobs:
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
+
       
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_E26FA1E4EDA24379BD1F6BF34E3CAD12 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_521E81FA81AE4587B5EEBD6FB01E6C85 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_64D91CF58AB24F9786809BBC14C9C42E }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_98D449B314B94116BE94121474540A30 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_3B69CF9EE29F49908BABDA7F89B044F8 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_C144AC5072094587A52A12DA4E0F3918 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
@@ -77,4 +78,4 @@ jobs:
         with:
           app-name: 'restaurantweb-hsowda'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          
