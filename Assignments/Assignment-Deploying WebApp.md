@@ -58,3 +58,12 @@ There are several locations in the tutorial where you will be told to check a pa
 
 ### Stage 7 - Clean up resources
 - Make sure to take a screenshot of your web page running and the resource visualizer before you delete the resources.
+
+# Things to pay attention to
+- There are a couple of environment variables that will affect how your app runs
+  - `SECRET_KEY` - the name of the environment variable must be `SECRET_KEY` (case sensitive) but the contents can be any complex string (for development)
+  - `DEBUG` - if you are having problems deploying, setting this value to `True` turns on more significant logging from Django and may help
+- After deploying the app, it may take several minutes to be able to access the app.  Be patient.
+- Use the `Log Stream` to see all the steps that are occuring during the setup.  Note the time/date stamps they are in GMT but more importantly, some of the logs don't always show up in chronological order, so be sure you are looking at the latest entries for debugging.
+- In some rare cases (depending on how networking was setup) you may need to change the statement `ALLOWED_HOSTS = []` to `ALLOWED_HOSTS = ['*']` in the `setting.py` file of the fork repository.  This is NOT safe for production applications, but it might help if you are having issues with connecting to web page.
+- If you need to make changes, for whatever reason, to the project - be sure you are committing the changes in YOUR repository and not trying to push them back to the original.
